@@ -1,4 +1,3 @@
-#include <string.h>
 #include <stdlib.h>
 #include "lists.h"
 
@@ -12,29 +11,28 @@
  */
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
-	dlistint_t *new, *l;
+    dlistint_t *new;
+    dlistint_t *l;
 
-	new = malloc(sizeof(dlistint_t));
-	if (!new || !head)
-		return (NULL);
-
-	new->n = n;
-
-	if (!*head)
-	{
-		*head = new;
-        new->next = NULL;
-		new->prev = NULL;
-		return (new);
-	}
-
-	l = *head;
-	while (l->next)
-		l = l->next;
-
+    new = malloc(sizeof(dlistint_t));
+    if (new == NULL)
+    {
+        return (NULL);
+    }
+    new->n = n;
     new->next = NULL;
+    if (*head == NULL)
+    {
+        *head = new;
+        new->prev = NULL;
+        return (new);
+    }
+    l = *head;
+    while (l->next != NULL)
+    {
+        l = l->next;
+    }
+    l->next = new;
     new->prev = l;
-	l->next = new;
-
-	return (new);
+    return (new);
 }
