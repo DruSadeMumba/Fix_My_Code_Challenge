@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-""" The Square Class"""
+""" The Square Class """
 
 
 class Square():
-    """ Square Class"""
+    """ Square Class """
     width = 0
     height = 0
 
@@ -17,16 +17,16 @@ class Square():
         return self.width * self.height
 
     def perimeter_of_my_square(self):
-        """ Perimeter of square"""
+        """ Perimeter of square """
         return (self.width * 2) + (self.height * 2)
 
     def __str__(self):
-        """ String rep of square"""
+        """ String rep of Square """
         return "{}/{}".format(self.width, self.height)
 
 
 if __name__ == "__main__":
-    """ Main entry point"""
+    """ Main entry point """
     s = Square(width=12, height=9)
     print(s)
     print(s.area_of_my_square())
